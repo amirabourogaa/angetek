@@ -107,7 +107,7 @@
       <div class="carousel-item active">
         <div class="hero-wrapper">
           <div class="hero-image">
-            <img src="assets/img/health/showcase-1.webp" alt="Advanced Healthcare" class="img-fluid">
+            <img src="assets/img/hero-2.jfif" alt="Advanced Healthcare" class="img-fluid">
           </div>
 
           <div class="hero-content">
@@ -138,7 +138,7 @@
       <div class="carousel-item">
         <div class="hero-wrapper">
           <div class="hero-image">
-            <img src="assets/img/health/showcase-2.webp" alt="Senior Care Technology" class="img-fluid">
+            <img src="assets/img/hero.jfif" alt="Senior Care Technology" class="img-fluid">
           </div>
 
           <div class="hero-content">
@@ -169,7 +169,7 @@
       <div class="carousel-item">
         <div class="hero-wrapper">
           <div class="hero-image">
-            <img src="assets/img/health/showcase-3.webp" alt="Family Peace of Mind" class="img-fluid">
+            <img src="assets/img/hero-3.jfif" alt="Family Peace of Mind" class="img-fluid">
           </div>
 
           <div class="hero-content">
@@ -210,270 +210,7 @@
   </div>
 </section><!-- /Hero Carousel Section -->
 
-<style>
-.hero-carousel {
-  position: relative;
-  height: 100vh;
-  min-height: 600px;
-  overflow: hidden;
-}
 
-.hero-carousel .carousel {
-  height: 100%;
-}
-
-.hero-carousel .carousel-inner {
-  height: 100%;
-}
-
-.hero-carousel .carousel-item {
-  height: 100%;
-  position: relative;
-}
-
-.hero-carousel .hero-wrapper {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-.hero-carousel .hero-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.hero-carousel .hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.hero-carousel .hero-image::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(2, 20, 24, 0.9) 0%, rgba(2, 20, 24, 0.7) 50%, rgba(2, 20, 24, 0.5) 100%);
-  z-index: 2;
-}
-
-.hero-carousel .hero-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  z-index: 3;
-}
-
-.hero-carousel .content-box {
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  max-width: 800px;
-}
-
-.hero-carousel .badge-accent {
-  display: inline-block;
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  padding: 8px 20px;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.hero-carousel h1 {
-  color: var(--contrast-color);
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-.hero-carousel p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  max-width: 600px;
-}
-
-.hero-carousel .cta-group {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.hero-carousel .btn-primary {
-  background: var(--accent-color);
-  border: none;
-  padding: 15px 35px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 10px;
-  transition: all 0.3s;
-}
-
-.hero-carousel .btn-primary:hover {
-  background: #038ea5;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(4, 158, 187, 0.2);
-}
-
-.hero-carousel .btn-outline {
-  background: transparent;
-  border: 2px solid var(--contrast-color);
-  color: var(--contrast-color);
-  padding: 15px 25px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 10px;
-  transition: all 0.3s;
-  max-width: 400px;
-}
-
-.hero-carousel .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-3px);
-}
-
-/* Carousel Controls */
-.hero-carousel .carousel-indicators {
-  bottom: 40px;
-  z-index: 4;
-}
-
-.hero-carousel .carousel-indicators button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid var(--contrast-color);
-  background: transparent;
-  margin: 0 5px;
-  opacity: 0.5;
-  transition: all 0.3s;
-}
-
-.hero-carousel .carousel-indicators button.active {
-  background: var(--accent-color);
-  border-color: var(--accent-color);
-  opacity: 1;
-  transform: scale(1.2);
-}
-
-.hero-carousel .carousel-control-prev,
-.hero-carousel .carousel-control-next {
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0 20px;
-  opacity: 0.7;
-  transition: all 0.3s;
-  z-index: 4;
-}
-
-.hero-carousel .carousel-control-prev:hover,
-.hero-carousel .carousel-control-next:hover {
-  background: rgba(255, 255, 255, 0.2);
-  opacity: 1;
-}
-
-.hero-carousel .carousel-control-prev {
-  left: 20px;
-}
-
-.hero-carousel .carousel-control-next {
-  right: 20px;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .hero-carousel h1 {
-    font-size: 2.8rem;
-  }
-  
-  .hero-carousel p {
-    font-size: 1.1rem;
-  }
-  
-  .hero-carousel .content-box {
-    padding: 30px;
-    margin: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-carousel {
-    height: 80vh;
-    min-height: 500px;
-  }
-  
-  .hero-carousel h1 {
-    font-size: 2.2rem;
-  }
-  
-  .hero-carousel p {
-    font-size: 1rem;
-  }
-  
-  .hero-carousel .cta-group {
-    flex-direction: column;
-  }
-  
-  .hero-carousel .btn-outline {
-    max-width: 100%;
-  }
-  
-  .hero-carousel .carousel-control-prev,
-  .hero-carousel .carousel-control-next {
-    width: 50px;
-    height: 50px;
-    margin: 0 10px;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-carousel {
-    height: 70vh;
-    min-height: 400px;
-  }
-  
-  .hero-carousel h1 {
-    font-size: 1.8rem;
-  }
-  
-  .hero-carousel .badge-accent {
-    font-size: 0.8rem;
-    padding: 6px 15px;
-  }
-  
-  .hero-carousel .content-box {
-    padding: 20px;
-  }
-  
-  .hero-carousel .carousel-indicators {
-    bottom: 20px;
-  }
-}
-</style>
 
 
 
