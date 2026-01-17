@@ -973,38 +973,58 @@ section,
   width: 100%;
 }
 
+/* ===============================
+   HERO CAROUSEL – IMAGE
+   =============================== */
+
 .hero-carousel .hero-image {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;                 /* remplace top/left/width/height */
   width: 100%;
   height: 100%;
   z-index: 1;
+  overflow: hidden;         /* évite les débordements */
 }
+
+/* ===============================
+   RESPONSIVE – MOBILE / TABLETTE
+   =============================== */
 
 @media (max-width: 1199px) {
   .hero-carousel .hero-image {
     position: relative;
-    height: 350px; /* Hauteur optimisée pour mobile */
+    height: 380px;          /* un peu plus haut pour mieux respirer */
   }
 }
+
+/* ===============================
+   IMAGE
+   =============================== */
 
 .hero-carousel .hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover;        /* 🔑 clé : pas de déformation */
+  object-position: center;  /* centrage optimal */
+  display: block;
 }
+
+/* ===============================
+   OVERLAY (PLUS LÉGER & ÉLÉGANT)
+   =============================== */
 
 .hero-carousel .hero-image::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(2, 20, 24, 0.9) 0%, rgba(2, 20, 24, 0.7) 50%, rgba(2, 20, 24, 0.5) 100%);
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 20, 24, 0.65) 0%,
+    rgba(2, 20, 24, 0.45) 40%,
+    rgba(2, 20, 24, 0.15) 100%
+  );
   z-index: 2;
+  pointer-events: none;
 }
 
 @media (max-width: 1199px) {
