@@ -5825,6 +5825,10 @@ section,
   font-weight: 700;
 }
 
+/* ===============================
+   STEP ITEM
+   =============================== */
+
 .contact .process-steps .step-item {
   position: relative;
   padding: 2rem 1rem;
@@ -5840,6 +5844,10 @@ section,
   box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
+/* ===============================
+   STEP NUMBER (VISIBLE SUR BLEU)
+   =============================== */
+
 .contact .process-steps .step-item .step-number {
   position: absolute;
   top: -15px;
@@ -5847,8 +5855,8 @@ section,
   transform: translateX(-50%);
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #3498db, #2ecc71);
-  color: var(--contrast-color);
+  background: var(--accent-color);
+  color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -5858,14 +5866,31 @@ section,
   z-index: 2;
 }
 
+/* ===============================
+   ICONS — CONTRASTE MAX
+   =============================== */
+
 .contact .process-steps .step-item .step-icon {
   margin: 1.5rem 0 1rem 0;
 }
 
 .contact .process-steps .step-item .step-icon i {
   font-size: 3rem;
-  color: #3498db;
+  color: #ffffff; /* 🔑 visible sur fond bleu */
+  background: none !important;
+  -webkit-text-fill-color: unset !important;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
+
+/* léger accent au hover */
+.contact .process-steps .step-item:hover .step-icon i {
+  color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+/* ===============================
+   TEXT
+   =============================== */
 
 .contact .process-steps .step-item h5 {
   color: var(--heading-color);
@@ -5881,6 +5906,10 @@ section,
   margin-bottom: 0;
 }
 
+/* ===============================
+   CONNECTING LINE (VISIBLE SUR BLEU)
+   =============================== */
+
 .contact .process-steps .step-item::before {
   content: "";
   position: absolute;
@@ -5888,9 +5917,13 @@ section,
   left: 50%;
   width: calc(100% - 80px);
   height: 2px;
-  background: linear-gradient(90deg, #3498db, #2ecc71);
+  background: rgba(255, 255, 255, 0.6);
   z-index: 1;
 }
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
 
 @media (max-width: 991px) {
   .contact .process-steps .step-item::before {
