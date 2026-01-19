@@ -1810,11 +1810,18 @@ section,
   justify-content: center;
   gap: 1.5rem;
   padding: 2rem;
-  background: linear-gradient(135deg, #4a6cf7, #3a56d7);
+
+  background: linear-gradient(
+    135deg,
+    var(--heading-color),
+    var(--accent-color)
+  );
+
   border-radius: 12px;
   margin-bottom: 2rem;
-  color: white;
+  color: var(--contrast-color);
 }
+
 
 .impact-value {
   font-size: 3.5rem;
@@ -7496,4 +7503,109 @@ section,
   padding-top: 60px;
   padding-bottom: 60px;
   /* Add your styles here */
+}
+
+/* 1) Colonnes égales en hauteur (desktop) */
+.ai-human-row {
+  align-items: stretch;
+}
+
+.ai-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2) Donner un “cadre” identique aux 2 colonnes (optionnel mais joli) */
+.ai-col-left,
+.ai-col-right {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* 3) La colonne gauche : pousser la grille en bas si besoin */
+.ai-col-left {
+  gap: 18px;
+}
+
+/* 4) Features : 3 cartes de même hauteur */
+.ai-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.ai-features .feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f8f9fa;
+  height: 100%; /* clé pour uniformiser */
+}
+
+/* Icône fixe, contenu flexible */
+.ai-features .feature-icon {
+  flex: 0 0 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(24,68,76,0.08);
+  color: #18444c;
+  font-size: 1.3rem;
+}
+
+.ai-features .feature-content {
+  flex: 1;
+}
+
+.ai-features .feature-content h4 {
+  margin: 0 0 6px 0;
+  font-size: 1.05rem;
+}
+
+.ai-features ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+/* 5) Colonne droite : répartir harmonieusement */
+.ai-col-right .impact-visual {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ai-col-right .impact-details {
+  display: grid;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* 6) Responsive */
+@media (max-width: 992px) {
+  .ai-col-left,
+  .ai-col-right {
+    padding: 20px;
+  }
+
+  .ai-features .feature-item {
+    padding: 14px;
+  }
+}
+main-impact
+@media (max-width: 576px) {
+  .ai-features .feature-item {
+    gap: 12px;
+  }
+
+  .ai-features .feature-icon {
+    flex: 0 0 40px;
+    height: 40px;
+  }
 }
