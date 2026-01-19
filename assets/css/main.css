@@ -1557,7 +1557,7 @@ section,
 .impact-label {
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--heading-color);
+  color: var(--background-colorr);
 }
 
 /* CTA Section */
