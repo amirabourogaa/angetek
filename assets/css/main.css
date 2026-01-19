@@ -929,7 +929,7 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Hero Carousel Section - CORRIGÉ
+# Hero Carousel Section - CORRIGÉ (avec Desktop moins large)
 --------------------------------------------------------------*/
 .hero-carousel {
   position: relative;
@@ -942,6 +942,47 @@ section,
   .hero-carousel {
     height: 100vh;
     min-height: 600px;
+  }
+
+  /* ✅ Desktop: réduire la largeur du conteneur Bootstrap UNIQUEMENT dans le hero */
+  .hero-carousel .hero-content .container {
+    max-width: 1100px; /* ajuste: 980 / 1040 / 1100 */
+  }
+
+  /* ✅ Desktop: content-box moins large + mieux centré dans la colonne */
+  .hero-carousel .content-box {
+    max-width: 620px;       /* au lieu de 800px */
+    padding: 36px;          /* un peu plus compact */
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  /* ✅ Desktop: largeur de lecture plus confortable */
+  .hero-carousel p {
+    max-width: 520px;       /* au lieu de 600px */
+  }
+
+  /* ✅ Desktop: bouton secondaire moins “étiré” */
+  .hero-carousel .btn-outline {
+    max-width: 320px;       /* au lieu de 400px */
+    white-space: normal;
+    text-wrap: balance;     /* si supporté */
+  }
+
+  /* ✅ Option: titre un peu moins grand pour éviter l’effet “trop large” */
+  .hero-carousel h1 {
+    font-size: 3.1rem;      /* au lieu de 3.5rem */
+  }
+}
+
+/* Très grands écrans */
+@media (min-width: 1600px) {
+  .hero-carousel .hero-content .container {
+    max-width: 1040px;
+  }
+
+  .hero-carousel .content-box {
+    max-width: 580px;
   }
 }
 
@@ -1017,7 +1058,7 @@ section,
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(2, 20, 24, 0.25); 
+  background: rgba(2, 20, 24, 0.25);
   /* très léger */
   z-index: 2;
   pointer-events: none;
@@ -1025,7 +1066,12 @@ section,
 
 @media (max-width: 1199px) {
   .hero-carousel .hero-image::after {
-    background: linear-gradient(to bottom, rgba(2, 20, 24, 0.1) 0%, rgba(2, 20, 24, 0.5) 70%, rgba(2, 20, 24, 0.8) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(2, 20, 24, 0.1) 0%,
+      rgba(2, 20, 24, 0.5) 70%,
+      rgba(2, 20, 24, 0.8) 100%
+    );
   }
 }
 
@@ -1221,7 +1267,7 @@ section,
   .hero-carousel h1 {
     font-size: 2.5rem;
   }
-  
+
   .hero-carousel p {
     font-size: 1.1rem;
   }
@@ -1231,7 +1277,7 @@ section,
   .hero-carousel h1 {
     font-size: 2rem;
   }
-  
+
   .hero-carousel .hero-image {
     height: 300px;
   }
@@ -1241,25 +1287,25 @@ section,
   .hero-carousel {
     padding-top: 50px; /* Encore moins sur très petit écran */
   }
-  
+
   .hero-carousel .hero-content {
     padding: 25px 0 15px;
     margin-top: -60px;
   }
-  
+
   .hero-carousel h1 {
     font-size: 1.7rem;
   }
-  
+
   .hero-carousel .badge-accent {
     font-size: 0.8rem;
     padding: 5px 14px;
   }
-  
+
   .hero-carousel .hero-image {
     height: 280px;
   }
-  
+
   .hero-carousel .content-box {
     padding: 20px 15px;
     margin: 0 10px;
@@ -1271,15 +1317,15 @@ section,
   .hero-carousel {
     padding-top: 45px;
   }
-  
+
   .hero-carousel .hero-image {
     height: 250px;
   }
-  
+
   .hero-carousel h1 {
     font-size: 1.5rem;
   }
-  
+
   .hero-carousel p {
     font-size: 0.9rem;
   }
@@ -1310,7 +1356,6 @@ section,
   max-width: 700px;
   margin: 0 auto;
 }
-
 /* About Section */
 .about-section {
   padding: 80px 0;
