@@ -1017,7 +1017,8 @@ section,
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(2, 20, 24, 0.25); /* très léger */
+  /* background: rgba(2, 20, 24, 0.25);  */
+  /* très léger */
   z-index: 2;
   pointer-events: none;
 }
