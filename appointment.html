@@ -184,7 +184,7 @@
           <div class="col-lg-6">
             <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="200">
               <h4 class="mb-4">Formulaire de Contact</h4>
-              <form action="forms/partnership.php" method="post" class="contact-form php-email-form">
+<form id="partnershipForm" class="contact-form php-email-form">
                 <div class="row gy-3">
 
                   <div class="col-md-6">
@@ -210,8 +210,8 @@
                       <option value="investment">Investissement</option>
                       <option value="technological">Collaboration Technologique</option>
                       <option value="commercial">Accord Commercial</option>
-                      <option value="rd">Recherche & Développement</option>
-                      <option value="rd">Information</option>
+                      <option value="Recherche & Développement">Recherche & Développement</option>
+                      <option value="Information">Information</option>
                     </select>
                   </div>
 
@@ -450,7 +450,6 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
@@ -460,6 +459,74 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // 1) Initialise EmailJS
+    // Remplace par ta vraie PUBLIC KEY EmailJS
+    emailjs.init("MtgI4_LNywJqs3aRQ");
+
+    // 2) Récupération du formulaire + éléments UI du template
+    const form = document.getElementById("partnershipForm");
+    if (!form) return;
+
+    const loadingEl = form.querySelector(".loading");
+    const errorEl = form.querySelector(".error-message");
+    const sentEl = form.querySelector(".sent-message");
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    function show(el){ if (el) el.style.display = "block"; }
+    function hide(el){ if (el) el.style.display = "none"; }
+
+    // Hide par défaut (au cas où)
+    hide(loadingEl); hide(errorEl); hide(sentEl);
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      hide(errorEl);
+      hide(sentEl);
+      show(loadingEl);
+      if (submitBtn) submitBtn.disabled = true;
+
+      // 3) Prépare les variables envoyées à EmailJS
+      // ⚠️ Les noms ci-dessous doivent matcher ton template EmailJS
+      const templateParams = {
+        company: form.company.value,
+        contact_person: form.contact_person.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        partnership_type: form.partnership_type.value,
+        industry: form.industry.value,
+        project_description: form.project_description.value
+      };
+
+      try {
+        // Remplace par tes IDs EmailJS
+        const SERVICE_ID = "service_xw6waua";
+        const TEMPLATE_ID = "template_uvnba7t";
+
+        await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
+
+        hide(loadingEl);
+        show(sentEl);
+        form.reset();
+
+      } catch (err) {
+        hide(loadingEl);
+        if (errorEl) {
+          errorEl.textContent = "Erreur lors de l’envoi. Veuillez réessayer ou nous écrire à partenariat@angetek.fr.";
+          show(errorEl);
+        }
+        console.error("EmailJS error:", err);
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  });
+</script>
 
 </body>
 
