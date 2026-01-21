@@ -243,12 +243,12 @@
                     <div class="service-details">
                       <h5>Data Room de Due Diligence</h5>
                       <p>Accédez à nos documents financiers, juridiques et opérationnels pour une évaluation complète.</p>
-                      <div class="emergency-actions">
-                        <a href="#" class="btn-emergency">
-                          <i class="fa fa-external-link-alt"></i>
-                          <span>Accéder à la data room</span>
-                        </a>
-                      </div>
+                     <div class="emergency-actions">
+  <a href="#" class="btn-emergency" id="openDataRoom">
+    <i class="fa fa-external-link-alt"></i>
+    <span>Accéder à la data room</span>
+  </a>
+</div>
                     </div>
                   </div>
                 </div>
@@ -385,6 +385,44 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
+  <!-- Data Room Modal -->
+<div class="modal-overlay" id="dataRoomModal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="dataRoomTitle">
+    <button type="button" class="modal-close" id="closeDataRoom" aria-label="Fermer">&times;</button>
+    <h3 id="dataRoomTitle" class="modal-title">Data Room</h3>
+
+   <div class="drawer-grid">
+
+  <a class="drawer" href="assets/one-pager.pdf" target="_blank" rel="noopener">
+    <i class="fa fa-file-alt drawer-icon"></i>
+    <span>Tiroir 1 : One-pager</span>
+  </a>
+
+  <a class="drawer" href="assets/pitch-deck.pdf" target="_blank" rel="noopener">
+<i class="fa fa-chalkboard-teacher drawer-icon"></i>
+    <span>Tiroir 2 : Pitch deck</span>
+  </a>
+
+  <a class="drawer" href="assets/investment-deck.pdf" target="_blank" rel="noopener">
+    <i class="fa fa-chart-line drawer-icon"></i>
+    <span>Tiroir 3 : Investment deck</span>
+  </a>
+
+  <a class="drawer" href="assets/business-plan.pdf" target="_blank" rel="noopener">
+    <i class="fa fa-briefcase drawer-icon"></i>
+    <span>Tiroir 4 : Business Plan</span>
+  </a>
+
+  <a class="drawer" href="assets/dossier-juridique.pdf" target="_blank" rel="noopener">
+    <i class="fa fa-scale-balanced drawer-icon"></i>
+    <span>Tiroir 5 : Dossier juridique</span>
+  </a>
+
+</div>
+
+  </div>
+</div>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
@@ -397,6 +435,39 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const openBtn = document.getElementById("openDataRoom");
+    const modal = document.getElementById("dataRoomModal");
+    const closeBtn = document.getElementById("closeDataRoom");
+
+    if (!openBtn || !modal || !closeBtn) return;
+
+    function openModal(e){
+      if (e) e.preventDefault();
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(){
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    openBtn.addEventListener("click", openModal);
+    closeBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", function(e){
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape") closeModal();
+    });
+  });
+</script>
 
 </body>
 
