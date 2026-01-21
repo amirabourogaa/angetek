@@ -7788,9 +7788,11 @@ section,
 
 .drawer-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 14px;
+  margin-top: 20px;
 }
+
 
 .drawer{
   display: flex;
@@ -7803,7 +7805,7 @@ section,
 }
 
 .drawer-icon{
-  font-size: 42px;
+  font-size: 36px;
   color: var(--bs-primary);
 }
 
@@ -7813,5 +7815,17 @@ section,
 
 .drawer span{
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 992px){
+  .drawer-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 576px){
+  .drawer-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

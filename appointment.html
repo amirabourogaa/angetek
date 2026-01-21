@@ -123,16 +123,58 @@
                 </div><!-- End Info Item -->
               </div>
 
-              <!-- Data Room Access -->
-              <div class="data-room mt-4" data-aos="fade-up" data-aos-delay="350">
-                <div class="data-room-card p-3">
-                  <h6 class="mb-2"><i class="bi bi-folder-check me-2"></i>Data Room de Due Diligence</h6>
-                  <p class="mb-0">Accédez à nos documents financiers et opérationnels pour une évaluation complète</p>
-                  <a href="#" class="btn btn-sm btn-outline-primary mt-2">
-                    <i class="bi bi-box-arrow-up-right me-1"></i>Accéder à la data room
-                  </a>
-                </div>
-              </div>
+             <!-- Data Room Access -->
+<div class="data-room mt-4" data-aos="fade-up" data-aos-delay="350">
+  <div class="data-room-card p-3">
+    <h6 class="mb-2">
+      <i class="bi bi-folder-check me-2"></i>Data Room de Due Diligence
+    </h6>
+    <p class="mb-0">
+      Accédez à nos documents financiers et opérationnels pour une évaluation complète
+    </p>
+    <a href="#" class="btn btn-sm btn-outline-primary mt-2" id="openDataRoomLocal">
+      <i class="bi bi-box-arrow-up-right me-1"></i>Accéder à la data room
+    </a>
+  </div>
+</div>
+
+<!-- POPUP DATA ROOM (local) -->
+<div class="modal-overlay" id="dataRoomModalLocal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <button type="button" class="modal-close" id="closeDataRoomLocal">&times;</button>
+    <h3 class="modal-title text-center">Data Room</h3>
+
+    <div class="drawer-grid">
+
+      <a class="drawer" href="assets/one-pager.pdf" target="_blank">
+        <i class="fa fa-file-alt drawer-icon"></i>
+        <span>Tiroir 1 : One-pager</span>
+      </a>
+
+      <a class="drawer" href="assets/pitch-deck.pdf" target="_blank">
+        <i class="fa fa-chalkboard-teacher drawer-icon"></i>
+        <span>Tiroir 2 : Pitch deck</span>
+      </a>
+
+      <a class="drawer" href="assets/investment-deck.pdf" target="_blank">
+        <i class="fa fa-chart-line drawer-icon"></i>
+        <span>Tiroir 3 : Investment deck</span>
+      </a>
+
+      <a class="drawer" href="assets/business-plan.pdf" target="_blank">
+        <i class="fa fa-briefcase drawer-icon"></i>
+        <span>Tiroir 4 : Business Plan</span>
+      </a>
+
+      <a class="drawer" href="assets/dossier-juridique.pdf" target="_blank">
+        <i class="fa fa-scale-balanced drawer-icon"></i>
+        <span>Tiroir 5 : Dossier juridique</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
 
             
             </div>
@@ -378,6 +420,33 @@
 
   <!-- Preloader -->
   <div id="preloader"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const openBtn = document.getElementById("openDataRoomLocal");
+    const modal = document.getElementById("dataRoomModalLocal");
+    const closeBtn = document.getElementById("closeDataRoomLocal");
+
+    if (!openBtn || !modal || !closeBtn) return;
+
+    openBtn.addEventListener("click", function(e){
+      e.preventDefault();
+      modal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    });
+
+    closeBtn.addEventListener("click", function(){
+      modal.classList.remove("is-open");
+      document.body.style.overflow = "";
+    });
+
+    modal.addEventListener("click", function(e){
+      if (e.target === modal) {
+        modal.classList.remove("is-open");
+        document.body.style.overflow = "";
+      }
+    });
+  });
+</script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
